@@ -1,0 +1,24 @@
+<form (submit)="submit()" [formGroup]="form">
+  <mat-form-field>
+    <mat-label>Name:</mat-label>
+    <input matInput formControlName="name" [isRequired]="isRequired" />
+  </mat-form-field>
+  <mat-error> {{ form.controls.name.errors | json }} </mat-error>
+  <br />
+  <mat-form-field>
+    <mat-label>First Name:</mat-label>
+    <input matInput formControlName="firstName" [required]="isRequired" />
+  </mat-form-field>
+  <mat-error> {{ form.controls.firstName.errors | json }} </mat-error>
+  <br />
+  <mat-form-field>
+    <mat-label>Last Name:</mat-label>
+    <input matInput formControlName="lastName" [required]="isRequired" />
+  </mat-form-field>
+  <mat-error> {{ form.controls.lastName.errors | json }} </mat-error>
+  <br />
+  <button>Submit</button>
+</form>
+
+{{ isRequired ? 'isRequired' : 'is not Required' }}
+<button (click)="isRequired = !isRequired">toggle</button>
